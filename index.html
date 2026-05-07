@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>月次・巡回・申告まるごとパック｜税理士事務所のための、AIアシスタント3点セット</title>
+<meta name="description" content="毎月の試算表コメント・巡回監査の会話台本・確定申告後の報告レターを、AIが3パターンで自動生成。税理士事務所の1年に、3つの相棒を。月額9,800円。">
+<meta property="og:title" content="月次・巡回・申告まるごとパック｜税理士事務所のための、AIアシスタント3点セット">
+<meta property="og:description" content="数字を渡すだけの事務所から、言葉を届ける事務所へ。月額9,800円。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0E1E3A;
+  --navy-soft: #1A2B4A;
+  --blue: #225AD3;
+  --blue-light: #0179E8;
+  --blue-pale: #E8F0FC;
+  --gold: #B8860B;
+  --gold-light: #D0A900;
+  --cream: #FAF8F2;
+  --paper: #FFFFFF;
+  --line: #E8E4D8;
+  --text: #1A1A1A;
+  --text-muted: #5A5A5A;
+  --shadow: 0 4px 24px rgba(14, 30, 58, 0.08);
+  --shadow-lg: 0 12px 48px rgba(14, 30, 58, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  color: var(--text);
+  background: var(--cream);
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.serif {
+  font-family: 'Noto Serif JP', serif;
+  letter-spacing: 0.04em;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ========== HEADER ========== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(250, 248, 242, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  z-index: 100;
+  padding: 14px 0;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--navy);
+  letter-spacing: 0.06em;
+}
+.logo-mark {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  background: var(--navy);
+  color: var(--cream);
+  border-radius: 4px;
+  text-align: center;
+  line-height: 28px;
+  font-size: 14px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+.header-cta {
+  display: inline-block;
+  padding: 10px 22px;
+  background: var(--navy);
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+.header-cta:hover { background: var(--blue); transform: translateY(-1px); }
+
+/* ========== HERO ========== */
+.hero {
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 80% 30%, rgba(34, 90, 211, 0.06), transparent 60%),
+    radial-gradient(circle at 60% 70%, rgba(184, 134, 11, 0.04), transparent 50%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 28px;
+  padding-left: 60px;
+  position: relative;
+}
+.hero-eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 50%;
+  width: 44px;
+  height: 1px;
+  background: var(--gold);
+}
+.hero h1 {
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: clamp(32px, 5.2vw, 56px);
+  line-height: 1.4;
+  color: var(--navy);
+  margin-bottom: 32px;
+  letter-spacing: 0.02em;
+}
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(180deg, transparent 65%, rgba(208, 169, 0, 0.25) 65%);
+  padding: 0 4px;
+}
+.hero-sub {
+  font-size: clamp(15px, 1.8vw, 18px);
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 48px;
+  max-width: 640px;
+}
+.hero-package {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  padding: 24px 32px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  margin-bottom: 40px;
+}
+.package-label {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 13px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+.package-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--navy);
+}
+.package-price {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-left: auto;
+}
+.package-price .yen { font-size: 14px; color: var(--text-muted); }
+.package-price .num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: var(--navy);
+}
+.package-price .unit { font-size: 13px; color: var(--text-muted); }
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: var(--navy);
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s;
+  border: 1px solid var(--navy);
+}
+.btn-primary:hover { background: var(--blue); border-color: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 36px;
+  background: transparent;
+  color: var(--navy);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+  transition: all 0.3s;
+  border: 1px solid var(--navy);
+}
+.btn-secondary:hover { background: var(--navy); color: var(--cream); transform: translateY(-2px); }
+
+/* ========== HERO VISUAL (3 app cycle) ========== */
+.hero-visual {
+  margin-top: 80px;
+  padding: 48px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+.cycle-title {
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.cycle-subtitle {
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 40px;
+}
+.cycle-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+}
+.cycle-node {
+  text-align: center;
+  padding: 20px 12px;
+  position: relative;
+}
+.cycle-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  background: var(--blue-pale);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Serif JP', serif;
+  font-size: 28px;
+  color: var(--blue);
+  font-weight: 900;
+}
+.cycle-phase {
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.cycle-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+.cycle-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.cycle-arrow {
+  color: var(--line);
+  font-size: 24px;
+  user-select: none;
+}
+
+/* ========== SECTION COMMON ========== */
+section {
+  padding: 100px 0;
+  position: relative;
+}
+.section-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.section-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: clamp(26px, 3.5vw, 38px);
+  font-weight: 700;
+  color: var(--navy);
+  text-align: center;
+  margin-bottom: 24px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+}
+.section-lead {
+  text-align: center;
+  font-size: 15px;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0 auto 64px;
+  line-height: 1.9;
+}
+
+/* ========== PROBLEM SECTION ========== */
+.problems {
+  background: linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
+}
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 48px;
+}
+.problem-card {
+  padding: 32px 28px;
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+.problem-card:hover { transform: translateY(-4px); }
+.problem-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+.problem-title {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.problem-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* ========== APP SECTION ========== */
+.apps {
+  background: var(--paper);
+}
+.app-block {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+  border-bottom: 1px solid var(--line);
+}
+.app-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.app-block.reverse { grid-template-columns: 1.3fr 1fr; }
+.app-block.reverse .app-info { order: 2; }
+.app-block.reverse .app-demo { order: 1; }
+
+.app-phase {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  background: rgba(208, 169, 0, 0.08);
+  padding: 6px 14px;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.app-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--navy);
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+.app-tagline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  color: var(--blue);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.app-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+.app-features {
+  list-style: none;
+  margin-bottom: 32px;
+}
+.app-features li {
+  padding: 10px 0 10px 28px;
+  position: relative;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--line);
+}
+.app-features li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 10px;
+  color: var(--blue);
+  font-weight: 700;
+}
+.app-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--blue);
+  padding-bottom: 2px;
+  transition: gap 0.3s;
+}
+.app-link:hover { gap: 12px; }
+
+/* Demo box */
+.app-demo {
+  background: linear-gradient(180deg, #F8F6F0 0%, #FFFFFF 100%);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+}
+.demo-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+}
+.demo-tab {
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-family: inherit;
+  letter-spacing: 0.05em;
+}
+.demo-tab:hover { color: var(--navy); }
+.demo-tab.active { color: var(--blue); border-bottom-color: var(--blue); }
+
+.demo-pane { display: none; }
+.demo-pane.active { display: block; animation: fadeIn 0.4s; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.demo-label {
+  display: inline-block;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  padding: 4px 10px;
+  border-radius: 2px;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+.demo-label.before { background: #F4E8E8; color: #8B4444; }
+.demo-label.after { background: var(--blue-pale); color: var(--blue); }
+.demo-text {
+  font-size: 13px;
+  line-height: 2;
+  color: var(--text);
+  background: var(--paper);
+  padding: 18px 20px;
+  border-radius: 4px;
+  border-left: 3px solid var(--blue);
+}
+.demo-text.before-text { border-left-color: #C99; opacity: 0.85; }
+.demo-meta {
+  margin-top: 12px;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* ========== EFFECT SECTION ========== */
+.effects {
+  background: var(--navy);
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+}
+.effects::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(34, 90, 211, 0.3), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(208, 169, 0, 0.15), transparent 50%);
+  pointer-events: none;
+}
+.effects .container { position: relative; z-index: 1; }
+.effects .section-eyebrow { color: var(--gold-light); }
+.effects .section-title { color: var(--cream); }
+.effects .section-lead { color: rgba(250, 248, 242, 0.75); }
+
+.effect-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+.effect-card {
+  text-align: center;
+  padding: 32px 20px;
+  border: 1px solid rgba(250, 248, 242, 0.15);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+}
+.effect-num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 56px;
+  font-weight: 900;
+  color: var(--gold-light);
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: 0;
+}
+.effect-num .unit { font-size: 18px; margin-left: 4px; }
+.effect-num .arrow { font-size: 24px; margin: 0 8px; opacity: 0.6; }
+.effect-label {
+  font-size: 13px;
+  color: var(--cream);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.effect-desc {
+  font-size: 11px;
+  color: rgba(250, 248, 242, 0.6);
+  line-height: 1.7;
+}
+
+/* ========== PRICING SECTION ========== */
+.pricing {
+  background: var(--cream);
+}
+.pricing-card {
+  max-width: 760px;
+  margin: 48px auto 0;
+  background: var(--paper);
+  border-radius: 8px;
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.pricing-header {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  color: var(--cream);
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-header::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(208, 169, 0, 0.2), transparent 70%);
+}
+.pricing-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  border-radius: 2px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.pricing-name {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  position: relative;
+}
+.pricing-sub {
+  font-size: 13px;
+  opacity: 0.85;
+  position: relative;
+}
+.pricing-amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 20px;
+  position: relative;
+}
+.pricing-amount .yen { font-size: 18px; }
+.pricing-amount .num {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 64px;
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+}
+.pricing-amount .unit { font-size: 14px; opacity: 0.85; }
+.pricing-compare {
+  margin-top: 12px;
+  font-size: 12px;
+  opacity: 0.85;
+  position: relative;
+}
+.pricing-compare s { opacity: 0.7; }
+
+.pricing-body {
+  padding: 40px;
+}
+.pricing-list {
+  list-style: none;
+  margin-bottom: 32px;
+}
+.pricing-list li {
+  padding: 14px 0 14px 32px;
+  position: relative;
+  font-size: 14px;
+  border-bottom: 1px dashed var(--line);
+}
+.pricing-list li:last-child { border-bottom: none; }
+.pricing-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0; top: 12px;
+  width: 20px; height: 20px;
+  background: var(--blue-pale);
+  color: var(--blue);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.pricing-cta {
+  display: block;
+  text-align: center;
+  padding: 20px;
+  background: var(--navy);
+  color: var(--cream);
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  transition: all 0.3s;
+}
+.pricing-cta:hover { background: var(--blue); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* ========== FAQ ========== */
+.faq {
+  background: var(--paper);
+}
+.faq-list {
+  max-width: 800px;
+  margin: 48px auto 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+}
+.faq-q {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--navy);
+  padding-left: 36px;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+}
+.faq-q::before {
+  content: "Q";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--gold);
+  font-weight: 900;
+  letter-spacing: 0;
+}
+.faq-a {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.9;
+  padding-left: 36px;
+  position: relative;
+}
+.faq-a::before {
+  content: "A";
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--blue);
+  font-weight: 900;
+  font-family: 'Noto Serif JP', serif;
+}
+
+/* ========== CTA SECTION ========== */
+.cta-section {
+  background: linear-gradient(135deg, var(--cream) 0%, #F4F0E0 100%);
+  text-align: center;
+  padding: 120px 0;
+}
+.cta-section .section-title {
+  margin-bottom: 32px;
+}
+.cta-section .section-lead {
+  margin-bottom: 48px;
+}
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cta-note {
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--navy);
+  color: var(--cream);
+  padding: 60px 0 40px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: center;
+}
+.footer-brand .footer-logo {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.footer-tagline {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 14px;
+  color: var(--gold-light);
+  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+}
+.footer-meta {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.8;
+}
+.footer-bottom {
+  max-width: 1100px;
+  margin: 32px auto 0;
+  padding: 24px 24px 0;
+  border-top: 1px solid rgba(250, 248, 242, 0.15);
+  font-size: 11px;
+  opacity: 0.6;
+  text-align: center;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .hero { padding: 120px 0 60px; }
+  .hero-package { padding: 20px 24px; }
+  .package-price { margin-left: 0; width: 100%; justify-content: flex-end; }
+  .hero-visual { padding: 32px 20px; }
+  .cycle-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .cycle-arrow { transform: rotate(90deg); margin: 0 auto; }
+  .app-block,
+  .app-block.reverse {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 64px;
+    padding-bottom: 64px;
+  }
+  .app-block.reverse .app-info { order: 1; }
+  .app-block.reverse .app-demo { order: 2; }
+  .footer-inner { grid-template-columns: 1fr; text-align: center; }
+  section { padding: 64px 0; }
+  .hero-cta-group { width: 100%; }
+  .btn-primary, .btn-secondary { flex: 1; justify-content: center; }
+}
+@media (max-width: 600px) {
+  .header-cta { padding: 8px 14px; font-size: 12px; }
+  .hero h1 { font-size: 28px; }
+  .demo-tab { padding: 8px 10px; font-size: 11px; }
+}
+
+/* ========== SCROLL REVEAL ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s, transform 0.8s;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <div class="header-inner">
+    <div class="logo">
+      <span class="logo-mark">税</span>みっけシリーズ
+    </div>
+    <a href="#pricing" class="header-cta">資料請求・お問い合わせ</a>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">FOR TAX ACCOUNTING FIRMS</div>
+    <h1>
+      数字を渡すだけの事務所から、<br>
+      <em>言葉を届ける事務所</em>へ。
+    </h1>
+    <p class="hero-sub">
+      毎月の試算表コメント、巡回監査の会話準備、確定申告後の報告レター。<br>
+      税理士事務所の1年に寄り添う3つのAIアシスタントを、ひとつのパッケージで。
+    </p>
+
+    <div class="hero-package">
+      <div>
+        <div class="package-label">PACKAGE</div>
+        <div class="package-name">月次・巡回・申告まるごとパック</div>
+      </div>
+      <div class="package-price">
+        <span class="yen">月額</span>
+        <span class="num">9,800</span>
+        <span class="unit">円（税抜）</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="#pricing" class="btn-primary">パッケージの詳細を見る →</a>
+      <a href="#apps" class="btn-secondary">3つのアプリを見る</a>
+    </div>
+
+    <!-- Visual: Year Cycle -->
+    <div class="hero-visual">
+      <div class="cycle-title">ANNUAL WORKFLOW</div>
+      <div class="cycle-subtitle">税理士事務所の1年に、3つの相棒を。</div>
+      <div class="cycle-grid">
+        <div class="cycle-node">
+          <div class="cycle-icon">試</div>
+          <div class="cycle-phase">PHASE 1 ─ 月次</div>
+          <div class="cycle-name">試算みっけ</div>
+          <div class="cycle-desc">月次試算表の<br>コメント自動生成</div>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-node">
+          <div class="cycle-icon">巡</div>
+          <div class="cycle-phase">PHASE 2 ─ 巡回</div>
+          <div class="cycle-name">巡回みっけ</div>
+          <div class="cycle-desc">経営者面談の<br>会話台本を準備</div>
+        </div>
+        <div class="cycle-arrow">→</div>
+        <div class="cycle-node">
+          <div class="cycle-icon">申</div>
+          <div class="cycle-phase">PHASE 3 ─ 申告</div>
+          <div class="cycle-name">申告みっけ</div>
+          <div class="cycle-desc">確定申告後の<br>報告レター生成</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROBLEM ========== -->
+<section class="problems">
+  <div class="container">
+    <div class="section-eyebrow">CHALLENGES</div>
+    <h2 class="section-title">所長先生、こんなお悩みはありませんか。</h2>
+    <p class="section-lead">
+      税理士事務所の現場で、長年繰り返されてきた「終わらない作業」と「見えない属人化」。<br>
+      AIに任せられる部分は任せて、先生方には本来の経営助言に集中していただく。それが私たちの提案です。
+    </p>
+
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-num">悩み 01</div>
+        <div class="problem-title">月末の試算表コメント、<br>毎月の苦行になっている</div>
+        <div class="problem-text">顧問先1件あたり15〜30分。担当者の負担は重く、表現も毎月同じ。月末に近づくと事務所全体の空気が重くなる。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">悩み 02</div>
+        <div class="problem-title">巡回監査の質が、<br>担当者によってバラつく</div>
+        <div class="problem-text">ベテランが行けば経営者は満足。新人だと数字を渡すだけ。事務所全体で「面談の質」を底上げしたい。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">悩み 03</div>
+        <div class="problem-title">確定申告後の報告レター、<br>毎年ゼロから書き直し</div>
+        <div class="problem-text">テンプレートはあるが結局カスタマイズが必要。気づくと深夜まで作業。先生のチェック時間も奪われている。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">悩み 04</div>
+        <div class="problem-title">若手が育たない、<br>定着しない</div>
+        <div class="problem-text">経営者と話す訓練の機会が少なく、新人は数字を渡すだけ。経験値の差を埋める仕組みがない。</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-num">悩み 05</div>
+        <div class="problem-title">顧問料の値下げ圧力に、<br>付加価値で対抗したい</div>
+        <div class="problem-text">「数字を作る事務所」から「言葉で伝える事務所」へ。見える付加価値で顧問料を守りたい。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== APPS SECTION ========== -->
+<section class="apps" id="apps">
+  <div class="container">
+    <div class="section-eyebrow">3 APPS · 1 PACKAGE</div>
+    <h2 class="section-title">税理士業務の3つのフェーズに、<br>3つの相棒を。</h2>
+    <p class="section-lead">
+      月次・巡回・申告。それぞれの場面で、AIが3パターンの文章を瞬時に生成します。<br>
+      生成されたものは「たたき台」。最終チェックは先生・担当者の手で。だからAI任せにならず、安心して導入できます。
+    </p>
+
+    <!-- App 1: 試算みっけ -->
+    <div class="app-block reveal">
+      <div class="app-info">
+        <span class="app-phase">PHASE 1 ── 毎月の月次フェーズ</span>
+        <h3 class="app-name">試算みっけ</h3>
+        <div class="app-tagline">毎月のコメント、もう悩まない。</div>
+        <p class="app-desc">
+          試算表のExcelやPDFをドロップするだけ。AIが数値を読み取り、3パターン × 3トーンで月次コメントを自動生成します。
+        </p>
+        <ul class="app-features">
+          <li>1件15〜30分の作業を、わずか数分に短縮</li>
+          <li>簡潔型・分析型・提案型の3パターン同時生成</li>
+          <li>業種・トーン・関係性に応じて文体を最適化</li>
+          <li>新入スタッフの教育ツールとしても活用可能</li>
+        </ul>
+        <a href="https://spc-jp.github.io/shisan-mikke/" target="_blank" rel="noopener" class="app-link">実際に試してみる →</a>
+      </div>
+
+      <div class="app-demo">
+        <div class="demo-tabs">
+          <button class="demo-tab active" data-target="shisan-before">Before</button>
+          <button class="demo-tab" data-target="shisan-a">パターンA</button>
+          <button class="demo-tab" data-target="shisan-b">パターンB</button>
+          <button class="demo-tab" data-target="shisan-c">パターンC</button>
+        </div>
+
+        <div class="demo-pane active" id="shisan-before">
+          <span class="demo-label before">BEFORE — 担当者がゼロから書く場合</span>
+          <div class="demo-text before-text">
+            7月の売上は前月比で減少しました。経費は前月並みでした。営業利益も減少傾向です。来月以降の動向に注意が必要です。
+          </div>
+          <div class="demo-meta">作業時間：約20分／顧問先 ・ 表現が単調になりがち</div>
+        </div>
+
+        <div class="demo-pane" id="shisan-a">
+          <span class="demo-label after">AFTER — パターンA（簡潔型）</span>
+          <div class="demo-text">
+            7月度売上1,720万円（前月比△7.0%、前年同月比+3.2%）。営業利益は120万円。猛暑による稼働率低下が主因。原材料費見直しにより原価率は1.2pt改善。8月は受注残により回復見込み。
+          </div>
+          <div class="demo-meta">経営報告・要約向け／所要時間：約30秒</div>
+        </div>
+
+        <div class="demo-pane" id="shisan-b">
+          <span class="demo-label after">AFTER — パターンB（分析型）</span>
+          <div class="demo-text">
+            7月度は売上1,720万円となり、前月比△7.0%・前年同月比+3.2%で着地いたしました。連日の猛暑により工場稼働率がやや低下した影響と推察されます。一方で、4月から取り組まれている原材料費の見直し効果が顕在化し、売上原価率は前月比1.2pt改善しております。8月は受注残の積み増しがあり、稼働回復による業績回復が見込まれます。
+          </div>
+          <div class="demo-meta">月次レポート・標準向け</div>
+        </div>
+
+        <div class="demo-pane" id="shisan-c">
+          <span class="demo-label after">AFTER — パターンC（提案型）</span>
+          <div class="demo-text">
+            7月度の売上減少は外部要因が中心であり、構造的な懸念はないと判断しております。ただし、夏季の稼働率低下は今後も繰り返されるリスクがあるため、空調投資の費用対効果について、次回の経営会議で論点として整理されることをお勧めいたします。原価率改善の流れを定着させるため、原材料の年間契約への移行もご検討の余地がございます。
+          </div>
+          <div class="demo-meta">経営者面談・提案向け</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 2: 巡回みっけ -->
+    <div class="app-block reverse reveal">
+      <div class="app-info">
+        <span class="app-phase">PHASE 2 ── 巡回監査・面談フェーズ</span>
+        <h3 class="app-name">巡回みっけ</h3>
+        <div class="app-tagline">数字の先に、会話がある。</div>
+        <p class="app-desc">
+          経営者との会話台本を、担当者の経験値・経営者との関係性・トーンに合わせて自動準備。新人でもベテラン並みの面談ができる事務所へ。
+        </p>
+        <ul class="app-features">
+          <li>新人・若手・ベテランの3段階で台本を最適化</li>
+          <li>「新規・関係が浅い／標準／親密」など関係性も考慮</li>
+          <li>経営者の課題・悩みも入力欄に反映できる</li>
+          <li>担当者教育の標準ツールとして事務所で活用可能</li>
+        </ul>
+        <a href="https://jyunkai-mikke.pages.dev/" target="_blank" rel="noopener" class="app-link">実際に試してみる →</a>
+      </div>
+
+      <div class="app-demo">
+        <div class="demo-tabs">
+          <button class="demo-tab active" data-target="jyunkai-before">Before</button>
+          <button class="demo-tab" data-target="jyunkai-new">新人モード</button>
+          <button class="demo-tab" data-target="jyunkai-std">標準モード</button>
+          <button class="demo-tab" data-target="jyunkai-vet">ベテラン</button>
+        </div>
+
+        <div class="demo-pane active" id="jyunkai-before">
+          <span class="demo-label before">BEFORE — 新人担当者が一人で考える場合</span>
+          <div class="demo-text before-text">
+            「7月の売上、前月より下がっていますね…。理由を聞いてみます。経費は前月並みです。来月の見通しも、聞いておきます」
+          </div>
+          <div class="demo-meta">数字を読み上げるだけ／経営者の満足度が上がりにくい</div>
+        </div>
+
+        <div class="demo-pane" id="jyunkai-new">
+          <span class="demo-label after">AFTER — 新人モード（標準トーン）</span>
+          <div class="demo-text">
+            「○○社長、お疲れ様です。7月度のご報告ですが、売上が前月比で7%ほど減少しております。これは7月の猛暑で工場稼働がやや抑制された影響かと推察しておりますが、現場のご様子はいかがでしたでしょうか。<br><br>実は良いニュースもありまして、4月から取り組まれている原材料費の見直しが効いてきて、売上原価率が1.2ポイント改善しています。8月の受注はどんな状況ですか？」
+          </div>
+          <div class="demo-meta">新人でも自然な対話の流れで進められる</div>
+        </div>
+
+        <div class="demo-pane" id="jyunkai-std">
+          <span class="demo-label after">AFTER — 標準モード（要因分析型）</span>
+          <div class="demo-text">
+            「7月度は売上1,720万円で、前月比△7.0%。猛暑による稼働率低下が主因と見ております。一方、原材料費見直しの効果が出始めており、原価率は1.2pt改善。<br><br>気になっておりますのは、夏季の稼働率低下が今後も繰り返される懸念です。空調投資の費用対効果について、社長のお考えをお聞かせいただけますでしょうか」
+          </div>
+          <div class="demo-meta">中堅担当者の標準的な面談スタイル</div>
+        </div>
+
+        <div class="demo-pane" id="jyunkai-vet">
+          <span class="demo-label after">AFTER — ベテランモード（提案型）</span>
+          <div class="demo-text">
+            「社長、いつもありがとうございます。7月の数字をご覧いただいていかがでしょうか。私としては、外部要因による一時的な減少と判断しておりまして、構造的な懸念はないと見ております。<br><br>むしろ気になっておりますのは、原価率改善の流れをいかに定着させるかという点です。原材料の年間契約への移行など、選択肢をご一緒に整理させていただければと存じます」
+          </div>
+          <div class="demo-meta">経営者の意思決定を引き出す対話設計</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App 3: 申告みっけ -->
+    <div class="app-block reveal">
+      <div class="app-info">
+        <span class="app-phase">PHASE 3 ── 確定申告フェーズ</span>
+        <h3 class="app-name">申告みっけ</h3>
+        <div class="app-tagline">確定申告書PDFから、報告レターを。</div>
+        <p class="app-desc">
+          確定申告書・試算表・勘定科目内訳のPDFをドロップするだけ。AIが数値を読み取り、節税ポイントの発見も含めた報告レターを自動生成します。
+        </p>
+        <ul class="app-features">
+          <li>e-Tax出力PDF・会計ソフトPDF・スキャンPDFすべて対応</li>
+          <li>最大3ファイルを同時に読み取り、横断分析</li>
+          <li>節税ポイントの発見をAIが提案（チェックで反映）</li>
+          <li>温かみ重視・フォーマル・要点型の3トーン</li>
+        </ul>
+        <a href="https://spc-jp.github.io/shinkoku-mikke/" target="_blank" rel="noopener" class="app-link">実際に試してみる →</a>
+      </div>
+
+      <div class="app-demo">
+        <div class="demo-tabs">
+          <button class="demo-tab active" data-target="shinkoku-before">Before</button>
+          <button class="demo-tab" data-target="shinkoku-warm">温かみ重視</button>
+          <button class="demo-tab" data-target="shinkoku-formal">フォーマル</button>
+          <button class="demo-tab" data-target="shinkoku-simple">要点型</button>
+        </div>
+
+        <div class="demo-pane active" id="shinkoku-before">
+          <span class="demo-label before">BEFORE — 担当者が毎年書き直す場合</span>
+          <div class="demo-text before-text">
+            ○○様<br>令和6年分の確定申告が完了しました。<br>納税額は○○円となります。<br>ご確認をお願いいたします。
+          </div>
+          <div class="demo-meta">事務的・作業的／経営者への価値伝達が弱い</div>
+        </div>
+
+        <div class="demo-pane" id="shinkoku-warm">
+          <span class="demo-label after">AFTER — 温かみ重視トーン</span>
+          <div class="demo-text">
+            ○○様<br><br>平素より大変お世話になっております。令和6年分の確定申告が無事完了いたしましたので、ご報告申し上げます。<br><br>本年度は所得が前年比で8.5%増と、しっかりと積み上げて来られた1年でしたね。特に9月以降の売上拡大が大きく寄与しております。日頃のご努力が数字に現れており、私どもも大変嬉しく拝見しておりました。<br><br>来年度に向けては、設備投資のタイミングと小規模企業共済の活用について、改めてご一緒に整理させていただければと存じます。
+          </div>
+          <div class="demo-meta">経営者と長くお付き合いのあるクライアント向け</div>
+        </div>
+
+        <div class="demo-pane" id="shinkoku-formal">
+          <span class="demo-label after">AFTER — フォーマルトーン</span>
+          <div class="demo-text">
+            ○○様<br><br>令和6年分の確定申告につきまして、下記のとおりご報告申し上げます。<br><br>本年度の所得は前年比+8.5%で着地し、納税額は前年比+12万円となりました。9月以降の売上拡大が増益要因として寄与しております。<br><br>今後の論点として、（1）設備投資の実行時期、（2）小規模企業共済の増額余地、（3）役員報酬の最適化、の3点が挙げられます。次回お会いした際に詳細をご説明させていただきます。
+          </div>
+          <div class="demo-meta">医療法人・上場企業オーナーなど格式重視向け</div>
+        </div>
+
+        <div class="demo-pane" id="shinkoku-simple">
+          <span class="demo-label after">AFTER — シンプル要点型</span>
+          <div class="demo-text">
+            ○○様<br><br>令和6年分の申告完了のご報告です。<br><br>■ 結果<br>・所得：前年比+8.5%<br>・納税額：前年比+12万円<br>・主因：9月以降の売上拡大<br><br>■ 来期の論点<br>・設備投資のタイミング<br>・小規模企業共済の増額<br><br>詳細は次回お会いした際にお話しします。
+          </div>
+          <div class="demo-meta">忙しい経営者・スピード重視のクライアント向け</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ========== EFFECTS ========== -->
+<section class="effects">
+  <div class="container">
+    <div class="section-eyebrow">EXPECTED OUTCOMES</div>
+    <h2 class="section-title">導入後、事務所はこう変わります。</h2>
+    <p class="section-lead">
+      作業時間の削減だけが目的ではありません。空いた時間を「経営助言」に転換する。<br>
+      それが顧問料を守り、若手を育て、事務所の競争力を引き上げます。
+    </p>
+
+    <div class="effect-grid">
+      <div class="effect-card reveal">
+        <div class="effect-num">20<span class="unit">h</span><span class="arrow">→</span>3<span class="unit">h</span></div>
+        <div class="effect-label">月次コメント作成時間</div>
+        <div class="effect-desc">所員1名・顧問先30件相当<br>※想定値</div>
+      </div>
+      <div class="effect-card reveal">
+        <div class="effect-num">3<span class="unit">パターン</span></div>
+        <div class="effect-label">3トーン × 3経験値</div>
+        <div class="effect-desc">担当者の経験値に合わせて<br>最適な文章を即座に提案</div>
+      </div>
+      <div class="effect-card reveal">
+        <div class="effect-num">9,800<span class="unit">円</span></div>
+        <div class="effect-label">月額（事務所単位）</div>
+        <div class="effect-desc">所員何名でも追加料金なし<br>使い放題プラン</div>
+      </div>
+      <div class="effect-card reveal">
+        <div class="effect-num">1<span class="unit">日</span></div>
+        <div class="effect-label">導入リードタイム</div>
+        <div class="effect-desc">インストール不要<br>URLを共有するだけで利用開始</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="pricing" id="pricing">
+  <div class="container">
+    <div class="section-eyebrow">PRICING</div>
+    <h2 class="section-title">月額 9,800円。<br>事務所まるごと、使い放題。</h2>
+    <p class="section-lead">
+      3アプリを単体でご利用いただいた場合の合計より、約35%お得な価格設定。<br>
+      所員様の人数による追加料金はかかりません。事務所まるごとご利用いただけます。
+    </p>
+
+    <div class="pricing-card">
+      <div class="pricing-header">
+        <div class="pricing-badge">RECOMMENDED</div>
+        <div class="pricing-name">月次・巡回・申告まるごとパック</div>
+        <div class="pricing-sub">税理士事務所のための、AIアシスタント3点セット</div>
+        <div class="pricing-amount">
+          <span class="yen">月額</span>
+          <span class="num">9,800</span>
+          <span class="unit">円（税抜）</span>
+        </div>
+        <div class="pricing-compare">
+          単体合計 <s>14,940円</s> → パッケージで <strong>約35%OFF</strong>
+        </div>
+      </div>
+
+      <div class="pricing-body">
+        <ul class="pricing-list">
+          <li>試算みっけ（月次試算表コメント自動生成）</li>
+          <li>巡回みっけ（経営者面談・会話台本生成）</li>
+          <li>申告みっけ（確定申告報告レター自動生成）</li>
+          <li>事務所単位ライセンス／所員数による追加料金なし</li>
+          <li>初期費用・導入費用ゼロ円</li>
+          <li>インストール不要／URLを共有するだけで即日利用開始</li>
+          <li>いつでも解約可能（最低利用期間なし）</li>
+          <li>所長先生向けの導入オンボーディング無料</li>
+        </ul>
+        <a href="#contact" class="pricing-cta">パッケージのお問い合わせ・資料請求 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="faq">
+  <div class="container">
+    <div class="section-eyebrow">FAQ</div>
+    <h2 class="section-title">よくあるご質問</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q">PCが苦手な所員でも使えますか？</div>
+        <div class="faq-a">はい、ご安心ください。インストールは不要で、ブラウザでURLを開くだけ。試算表のExcelやPDFをドラッグ＆ドロップするだけで動きます。導入時には所長先生・担当者向けに無料オンボーディングをご用意しております。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">生成された文章は、そのまま顧問先に送れますか？</div>
+        <div class="faq-a">あくまで「たたき台」としてご利用ください。最終チェックは必ず先生・担当者の手で行うことを推奨しております。事務所内のスタイルに合わせた微修正で、品質の高いアウトプットが完成します。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">顧問先の機密情報は外部に保存されませんか？</div>
+        <div class="faq-a">入力されたデータは、AI処理のため一時的に通信されますが、当社サーバーに保存することはありません。生成結果もブラウザ内で完結します。詳細は導入時にあらためて資料でご説明いたします。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">解約はいつでもできますか？</div>
+        <div class="faq-a">はい、いつでも解約可能です。最低利用期間はございません。月単位でのご利用となりますので、まずは1か月お試しいただくことも可能です。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">導入実績はどのくらいありますか？</div>
+        <div class="faq-a">「みっけシリーズ」全体では、士業（税理士・弁護士）・製造業・薬局・飲食業など複数業種で導入が進んでおります。本パッケージは税理士事務所向けに特化した最新シリーズです。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">事務所内で複数名が使う場合、人数制限はありますか？</div>
+        <div class="faq-a">人数制限はございません。月額9,800円で、所員様何名でもご利用いただけます。事務所単位ライセンスです。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="section-eyebrow">CONTACT</div>
+    <h2 class="section-title">まずは、お気軽に<br>お問い合わせください。</h2>
+    <p class="section-lead">
+      所長先生向けの個別ご相談を承っております。<br>
+      事務所の現状をお聞かせいただいたうえで、最適な導入方法をご提案いたします。
+    </p>
+    <div class="cta-buttons">
+      <a href="mailto:info@spc-jp.com?subject=月次・巡回・申告まるごとパックについて" class="btn-primary">メールで問い合わせる →</a>
+      <a href="#apps" class="btn-secondary">3つのアプリを試す</a>
+    </div>
+    <p class="cta-note">
+      ご相談・資料請求は無料です。お気軽にお声掛けください。<br>
+      Smile Plus Consulting／代表 松本由也
+    </p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Smile Plus Consulting</div>
+      <div class="footer-tagline">考えるを、ひとりにしない。</div>
+      <div class="footer-meta">
+        中小企業のための、AI活用Web支援。<br>
+        税理士・製造業・薬局・士業のDX伴走パートナー。
+      </div>
+    </div>
+    <div>
+      <a href="#pricing" class="header-cta">資料請求はこちら</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © Smile Plus Consulting. みっけシリーズは Smile Plus Consulting の登録商標です。<br>
+    本ページに記載の数値・画面はサンプル・想定値であり、実際の利用環境により異なります。
+  </div>
+</footer>
+
+<script>
+// ========== TAB SWITCHING ==========
+document.querySelectorAll('.demo-tabs').forEach(tabGroup => {
+  const tabs = tabGroup.querySelectorAll('.demo-tab');
+  const block = tabGroup.closest('.app-demo');
+  const panes = block.querySelectorAll('.demo-pane');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      const targetId = tab.dataset.target;
+      const target = block.querySelector('#' + targetId);
+      if (target) target.classList.add('active');
+    });
+  });
+});
+
+// ========== SCROLL REVEAL ==========
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ========== HEADER SHADOW ON SCROLL ==========
+const header = document.querySelector('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 20) {
+    header.style.boxShadow = '0 2px 12px rgba(14, 30, 58, 0.08)';
+  } else {
+    header.style.boxShadow = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
